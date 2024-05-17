@@ -170,6 +170,7 @@ ifdef CONFIG_TOOLS_LIBCRYPTO
 HOST_EXTRACFLAGS	+= -DCONFIG_FIT_SIGNATURE
 HOST_EXTRACFLAGS	+= -DCONFIG_FIT_SIGNATURE_MAX_SIZE=0xffffffff
 HOST_EXTRACFLAGS	+= -DCONFIG_FIT_CIPHER
+HOST_EXTRACFLAGS	+= $(shell pkg-config --cflags libssl libcrypto 2> /dev/null || echo "")
 endif
 
 # MXSImage needs LibSSL
